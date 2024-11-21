@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  build:
+    env:
+      OMPI_CC: "/opt/homebrew/opt/llvm/bin/clang"
+    cmds:
+      - mpicc -o mpi_exchange mpi_exchange.c
+  run:
+    cmds:
+      - mpirun -n 5 ./mpi_exchange

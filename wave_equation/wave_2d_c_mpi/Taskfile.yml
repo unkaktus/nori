@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  default:
+    env:
+      OMPI_CC: "/opt/homebrew/opt/llvm/bin/clang"
+    cmds:
+      - env PATH=/opt/homebrew/opt/llvm/bin:$PATH  mpicc -fopenmp -o wave_2d_c_mpi wave_2d_c_mpi.c
+      - mkdir -p ./data
+      - rm -rf ./data/*
+      - mpirun -n 8 ./wave_2d_c_mpi

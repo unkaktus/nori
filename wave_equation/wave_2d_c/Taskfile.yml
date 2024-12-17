@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - env PATH=/opt/homebrew/opt/llvm/bin:$PATH clang -fopenmp -o wave_2d_c wave_2d_c.c
+      - rm -rf ./data/*
+      - mkdir -p ./data
+      - ./wave_2d_c
